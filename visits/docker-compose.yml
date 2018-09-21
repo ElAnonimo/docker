@@ -1,0 +1,11 @@
+version: '3'
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: on-failure
+    # instead of using an image build one using Dockerfile in this directory then use that image for node-app container
+    build: .
+    ports:
+      # map port 8081 on laptop to 8081 on container
+      - "8081:8081"
